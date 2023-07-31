@@ -1,16 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Monofett&display=swap');
+@font-face {
+    font-family: 'Heading';
+    src: url('../../fonts/Balloons-YYVy.ttf');
+  }
 nav{
     background-color: black;
     color: white;
-    padding: 10px;
+    /* padding: 10px; */
     height: 60px;
     width: 100%;
     line-height: 60px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
 }
-h1{
+body{
+    background-color: rgb(175, 6, 175);
+}
+nav h1{
     margin-left: 20px;
 }
+
 #wallet{
     background-color: rgb(3, 187, 113);
     color: white;
@@ -18,10 +29,75 @@ h1{
     border-radius: 10px;
     padding: 10px;
     cursor: pointer;
-    margin-left: 30px;
     font-size: 20px;
+    margin-right: 20px;
 }
-.container span{
+.container{
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+}
+#balance{
+    padding: 8px;
+    background-color: purple;
+    color: white;
+    margin-top: 30px;
+    font-size: 18px;
+    border-radius: 5px;
+}
+.stats_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -30px;
+    /* border: 2px solid white; */
+    padding: 40px;
+    border-radius: 60px;
+    background-color: purple;
+}
+.container .info{
+    color: white;
+    font-size: 18px;
+}
+.container h1{
+    font-size: 100px;
+    color: white;
+    /* letter-spacing: 7px; */
+    font-family: 'Heading'
+}
+.container hr{
+    width: 300px;
+    position: absolute;
+    left:10px;
+}
+#purchase_donut{
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
     margin-left: 30px;
-    color: black;
+    font-size: 18px;
+}
+#purchase_donut:hover{
+    /* transform: scale(1.1); */
+    border: 2px solid white;
+}
+.container input{
+    text-decoration: none;
+    border: none;
+    border-bottom: 2px solid black;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 10px;
+    width: 150px;
+    /* background-color: rgb(175, 6, 175); */
+}
+
+#trans_msg{
+    color: white;
+    font-weight: bold;
 }
