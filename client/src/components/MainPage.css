@@ -61,6 +61,16 @@ nav h1{
     color: white;
     font-size: 18px;
 }
+#restock{
+    margin-top: 15px;
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 7px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+}
 .container h1{
     font-size: 100px;
     color: white;
@@ -100,4 +110,38 @@ nav h1{
 #trans_msg{
     color: white;
     font-weight: bold;
+}
+
+.restock_box{
+    background-color: black;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 270px;
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+}
+.restock_box h2{
+    color: white;
+}
+.restock_box input{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+}
+#submit,#cancel{
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+#cancel{
+    background-color: red;
+}
+#submit{
+    background-color: green;
 }

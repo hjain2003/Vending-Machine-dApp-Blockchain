@@ -12,6 +12,9 @@ const MainPage = () => {
     const [vmContract, setVmContract] = useState(null);
     const [transactionStatus, setTransactionStatus] = useState('');
     const [walletBalance, setWalletBalance] = useState('');
+    const [isRestock, setRestock] = useState(false);
+    const [restockAmt, setRestockAmt] = useState('');
+    const [donutSaveBtn,setDonutSaveBtn] = useState('ADD DONUTS');
 
 
     useEffect(() => {
@@ -65,6 +68,35 @@ const MainPage = () => {
         }
     }
 
+    const handleRestockChange =(e)=>{
+        setRestockAmt(e.target.value);
+    }
+
+    const restockDonuts = async()=>{
+        setDonutSaveBtn('PROCESSING...');
+        try {
+            await vmContract.methods.restock(restockAmt).send({
+              from: address,
+            });
+            // setTransactionStatus(`${restockAmt} Donuts restocked successfully!!`);
+            getInventory();
+            getWalletBalance();
+            setDonutSaveBtn('ADD DONUTS');
+            setRestock(false);
+          } catch (error) {
+            console.log(error);
+          }
+    }
+
+    const openRestockbox = ()=>{
+        setRestock(true);
+    }
+    const cancelRestock = ()=>{
+        setRestock(false);
+    }
+
+    
+
     const connectWallet = async () => {
         //check if wallet exists
         if (typeof window !== "undefined" && typeof window.ethereum !== 'undefined') {
@@ -98,12 +130,21 @@ const MainPage = () => {
                     Connect Wallet
                 </button>
             </nav>
+            {isRestock && 
+                <div className="restock_box">
+                    <h2 align="center">ADD AMOUNT</h2>
+                    <input type="number" placeholder='Enter quantity' onChange={handleRestockChange} /><br />
+                    <button id="submit" onClick={restockDonuts}>{donutSaveBtn}</button><br />
+                    <button id="cancel" onClick={cancelRestock}>CANCEL</button>
+                </div>
+            }
             <div className="container">
                 <span id="balance">Current balance : <b>{walletBalance} ETH</b> </span>
                 <h1>Buy A Donut</h1>
                 <div className="stats_container">
                     <span className='info' id="top_info">Inventory : {inventory} </span>
                     <span className='info'>My Donuts : {myDonutCount} </span>
+                    <button id="restock" onClick={openRestockbox}>Restock</button>
                 </div>
                 <br /><br />
                 <div className='purchase'>
