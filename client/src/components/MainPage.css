@@ -1,0 +1,27 @@
+nav{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    height: 60px;
+    width: 100%;
+    line-height: 60px;
+    display: flex;
+    align-items: center;
+}
+h1{
+    margin-left: 20px;
+}
+#wallet{
+    background-color: rgb(3, 187, 113);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    margin-left: 30px;
+    font-size: 20px;
+}
+.container span{
+    margin-left: 30px;
+    color: black;
+}
